@@ -1,0 +1,9 @@
+<result>
+    <answers>
+        <meta matchMode="index">
+            <!-- Hash token should not appear multi-valued -->
+            <name>GRE_RESULT</name>
+            <value>Angora</value>
+        </meta>
+    </answers>
+</result>

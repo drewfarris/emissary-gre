@@ -1,0 +1,251 @@
+#Magic file for use with the UnixFilePlace
+
+# Microsoft PE executable
+0   string  MZ  MS_EXECUTABLE
+
+#
+#VCARD files
+6       string  VCARD   VCARD
+6       string  vcard   VCARD
+
+#Dbx Files
+#
+
+0       long    0xCFAD12FE      DBX
+>4      string  \xC5\xFD\x74\x6F\x66\xE3\xD1\x11\x9A\x4E\x00\xC0        \b_EMAIL
+>4      string  \xC6\xFD\x74\x6F\x66\xE3\xD1\x11\x9A\x4E\x00\xC0        \b_FOLDER
+
+# Mbox format
+0       string  From\   MBOX
+
+# Email contact list LDIF/LDAP
+0       string  dn:     CONTACTS_LDIF
+
+# MSOFFICE - not 100% sure this is sufficient to ID them
+0       long    0xD0CF11E0      MSOFFICE
+0       string  \376\067\0\043                  MSOFFICE
+0       string  \320\317\021\340\241\261        MSOFFICE
+0       string  \333\245-\0\0\0                 MSOFFICE
+0       string  {\\rtf                          RTF
+
+# WordPerfect text and graphics file
+# (WP, WPD, WPG, WPP, WP5, WP6)
+# From Anh Vu <minhblvd@netscape.net>
+0       string  \xFFWPC         WORDPERFECT
+
+########################################################
+# ARCHIVE section
+#Zip. Old name: 'Zip archive data, at least vx.x to extract'
+#         New name: 'ARCHIVE_ZIP'
+#
+0       string  PK\003\004      ZIP
+
+# 7zip. Compressed file
+0       string          \x37\x7A\xBC\xAF\x27\x1C        7ZIP
+#
+# PDF. Old name: 'PDF document, version x.x'
+#         New name: 'PDF'
+#
+
+0       string  %PDF-   PDF
+
+#
+# Index.dat. Old name: 'data'
+#               New name: 'INDEX_DAT'
+
+0       string  Client\ UrlCache        INDEX_DAT
+
+#
+# PST. Old name: 'Assembler source'
+#         New name: 'PST_OUTLOOK'
+#
+0       long    0x2142444E      PST_OUTLOOK
+
+#PCAP
+0       long            0xd4c3b2a1      PCAP
+0       long            0xa1b2c3d4      PCAP
+
+#WAB
+0       string  \234\313\313\215\023\165\322\021\221\130\000\300\117\171\126\244    WAB
+
+
+#
+# SQLite Files
+#
+0       string          SQLite          SQLITE_DATABASE
+
+#------------------------------------------------------------
+# Java ByteCode
+# From Larry Schwimmer (schwim@cs.stanford.edu)
+0       belong          0xcafebabe
+>4      belong          >30             JAVA_CLASS
+
+# Shared magic with MACH O binary
+0       belong          0xcafebabe
+>4      belong          1               MACH_O_UNIVERSAL_BINARY
+>4      belong          >1
+>>4     belong          <20             MACH_O_UNIVERSAL_BINARY
+
+# More MACH O binary
+0       lelong         0xfeedface      MACH_O_UNIVERSAL_BINARY
+0       belong         0xcffaedfe      MACH_O_UNIVERSAL_BINARY
+
+# gzip (GNU zip, not to be confused with Info-ZIP or PKWARE zip archiver)
+#   Edited by Chris Chittleborough <cchittleborough@yahoo.com.au>, March 2002
+#       * Original filename is only at offset 10 if "extra field" absent
+#       * Produce shorter output - notably, only report compression methods
+#         other than 8 ("deflate", the only method defined in RFC 1952).
+0       string          \037\213        GZIP
+
+# WEBP image format, https://developers.google.com/speed/webp
+8      string        WEBPVP8            WEBP
+
+# National Imagery Transmission Format (NITF)
+# Defined by United States MIL-STD-2500A
+# it uses the field FHDR and the first 3 characters of FVER (matching NITF 2.x)
+0       string  NITF02.   NITF
+
+# JPEG 2000 Code Stream Bitmap
+0       string  \x00\x00\x00\x0C\x6A\x50\x20\x20\x0D\x0A        JPEG2000
+
+# https://en.wikipedia.org/wiki/JPEG
+0	string		\377\330\377	JPEG
+
+# https://en.wikipedia.org/wiki/Portable_Network_Graphics
+0	string		\211PNG\x0d\x0a\032\x0a		PNG
+
+# https://en.wikipedia.org/wiki/GIF#File_format
+0	string		GIF87a		GIF
+0	string		GIF89a		GIF
+
+# https://en.wikipedia.org/wiki/Tagged_Image_File_Format#Byte_order
+0	belong		0x4d4d002a		TIFF
+0	belong		0x49492a00		TIFF
+
+# LAS LIDAR files
+0       string  LASF    LAS
+
+#------------------------------------------------------------------------------
+# RFile:  file(1) magic for Accumulo RFiles
+#
+# From <mjwall@gmail.com>
+# This is from comparing several rf files from Accumulo 1.4.2 with hexdump
+# Looks like this is RFile version 6
+
+0       string          \xd1\x11\xd3\x68\x91\xb5\xd7\xb6\x39\xdf\x41\x40\x92\xba\xe1\x50    RFILE
+
+# Microsoft Access Database formats
+4       string           Standard\x20Jet\x20DB  MS_ACCESS
+4       string           Standard\x20ACE\x20    MS_ACCESS_ACE_DATABASE
+
+# Compression formats
+0       string          BZh                     BZIP2
+
+# SAS XPORT data file
+0       string  HEADER\ RECORD*******LIBRARY\ HEADER\ RECORD!!!!!!!    SAS_XPORT
+
+# Shell script types
+0       string        #!/bin/sh             UNIX-SHELL-SCRIPT
+0       string        #!/bin/bash           UNIX-BASH-SCRIPT
+0       string        #!/bin/csh            UNIX-CSH-SCRIPT
+0       string        #!/bin/ksh            UNIX-KSH-SCRIPT
+0       string        #!/bin/tcsh           UNIX-TCSH-SCRIPT
+0       string        #!/usr/local/tcsh     UNIX-TCSH-SCRIPT
+0       string        #!/usr/local/bin/tcsh UNIX-TCSH-SCRIPT
+
+# KML
+40      string        <kml\x20xmlns="http://earth.google.com/kml KML
+40      string        <kml\x20xmlns="http://www.opengis.net/kml  KML
+56      string        <kml\x20xmlns="http://earth.google.com/kml KML
+56      string        <kml\x20xmlns="http://www.opengis.net/kml KML
+
+# XML
+# xml wraps too many things to do its id here. See flood.jflex instead.
+
+########################################################
+# AUDIO section
+0       string          ID3     AUDIO_WITH_ID3V2
+
+0   string  RIFX    RIFF_BE
+0   string  RIFF
+>8  string  WAVE    AUDIO_WAV
+>8  string  CDXA    MPEG
+>8  string  RDIB    BITMAP
+>8  string  RMID    MIDI
+>8  string  RMMP    MOVIE
+>8  string  RMP3    MP3
+>8  string  AVI\    AVI
+>8  string  CDRA    COREL_DRAW
+>8  string  ACON    ANIMATED_CURSOR
+>8  string  PAL\    COLOR_PALETTE
+
+# MP3. Audio (usually music) file.
+# From Anh Vu <minhblvd@netscape.net>
+# There are 2 signatures according to Wiki:
+# FF FB = MPEG-1 Layer 3 file without an ID3 tag or with an ID3v1 tag at the end of file.
+# FF F3 = MPEG-1 Layer 3 file (no checksum) with or without ID3v1 and ID3v2 tags
+# FF FA = MPEG-2 Layer 3
+# ID3 = This signature is covered by the type AUDIO_WITH_ID3V2 above.
+0       beshort         0xfff3          AUDIO_MP3
+0       beshort         0xfffb          AUDIO_MP3
+
+# Sourcecode related
+0       string          \x78\x01        GIT_OBJECT
+0       string          \xfftOc         GIT_PACK_INDEX
+0       string          PACK\x00\x00    GIT_PACKED_OBJECT
+
+# Blackberry COD mobile software container
+# From analyzing several downloaded COD files and
+# http://drbolsen.wordpress.com/2006/07/26/blackberry-cod-file-format/
+0               string                  \xde\xc0\xff\xff\x00\x00\x00\x00\x00\x00\x00\x00        COD
+
+# Symbian  installation file (Symbian OS 9.x)
+0       lelong          0x10201A7A      SYMBIAN_SIS
+
+# Ebooks
+60      string          BOOKMOBI        EBOOK_KINDLE
+60      string          DataPlkr        EBOOK_PLUCKER
+# RAR compressed files
+0       string          Rar!            RAR
+
+# Microsoft cabinets
+# by David Necas (Yeti) <yeti@physics.muni.cz>
+0       string  MSCF\0\0\0\0    CAB
+#>25    byte    x               v%d
+#>24    byte    x               \b.%d
+
+# postscript
+0   string  %!PS    POSTSCRIPT
+
+# Avro
+0     string  Obj\x01   AVRO_BINARY
+#>6    search  avro.schema      AVRO_BINARY
+
+# PC bitmaps (OS/2, Windows BMP files)
+0   string      BM      BMP
+
+# PNG (Portable Network Graphics) format
+0   string      \211PNG\x0d\x0a\032\x0a     PNG
+
+# PSD (Photoshop Document) file format
+0   string      8BPS    PSD
+
+# ICO (Windows Icon) file format
+0   string      \x00\x00\x01\x00    ICO
+
+# PCX (PiCture eXchange - MSPaint) file format 
+0   beshort     0x0a00      PCX
+0   beshort     0x0a02      PCX
+0   beshort     0x0a03      PCX
+0   beshort     0x0a04      PCX
+0   beshort     0x0a05      PCX
+
+# Open EXR (Extended Range) format
+0   string      \x76\x2f\x31\x01    EXR
+
+# RAF (FujiFilm RAW) format
+0   string      FUJIFILM    RAF
+
+# CRW (Canon RAW) format
+6   string      HEAPCCDR    CRW
+6   string      HEAPJPGM    CRW
